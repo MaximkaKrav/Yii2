@@ -1,4 +1,7 @@
 <?php
+
+use yii\db\Connection;
+
 $params = array_merge(
     require __DIR__ . '/../../common/config/params.php',
     require __DIR__ . '/../../common/config/params-local.php',
@@ -13,6 +16,12 @@ return [
     'bootstrap' => ['log'],
     'modules' => [],
     'components' => [
+        'db' => [
+            'class' => Connection::class,
+            'dsn' => 'mysql:host=localhost:33060;dbname=yii2advanced',
+            'username' => 'yii2advanced',
+            'password' => 'secret',
+        ],
         'request' => [
             'csrfParam' => '_csrf-backend',
         ],
