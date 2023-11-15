@@ -1,7 +1,6 @@
 
 FROM php:8.1-fpm
 
-# Устанавливаем необходимые зависимости
 RUN apt-get update && apt-get install -y \
     libzip-dev \
     zip \
@@ -15,7 +14,6 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 
 
 
-# Установка зависимостей в первый раз
 RUN composer install -d /var/www/html/gii
 
 RUN usermod -u 1000 www-data && groupmod -g 1000 www-data
